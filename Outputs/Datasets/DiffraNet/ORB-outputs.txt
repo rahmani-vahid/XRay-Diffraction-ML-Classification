@@ -1,0 +1,100 @@
+Detector selected: <ORB 000001F88A2D0BB0>
+
+Descriptor selected: <ORB 000001F88A2D0B90>
+
+Training-set path: Datasets/DiffraNet/Dataset/Train/
+
+Test-set path: Datasets/DiffraNet/Dataset/Test/
+
+Number of Classes: 5
+
+Extract Features
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+Extracted ORB 
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+Extracted ORB 
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+Extracted ORB 
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+Extracted ORB 
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+Extracted ORB 
+
+Time: 00:02:31 
+
+Create Bag of Visual Features
+
+Training ORB K-Means
+
+Time: 00:02:56 
+
+ORB Training Data
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+
+Time: 00:00:06 
+
+ORB Testing Data
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+
+Time: 00:00:23 
+
+Training ORB SVM Models
+
+ORB SVM
+
+Training Set Evaluation
+
+Train score: 0.78
+
+Testing ORB SVM Model
+
+ORB SVM
+
+Testing Set Evaluation
+
+Test score: 0.77
+
+
+Classification Report
+
+ORB SVM
+
+Classification report for Classifier: 
+
+SVC(C=0.001): 
+
+               precision    recall  f1-score   support
+
+       Blank       0.81      1.00      0.89       200
+        Good       0.54      0.76      0.63       200
+  No-Crystal       1.00      1.00      1.00       200
+      Strong       0.72      0.74      0.73       200
+        Weak       1.00      0.33      0.49       200
+
+    accuracy                           0.77      1000
+   macro avg       0.81      0.77      0.75      1000
+weighted avg       0.81      0.77      0.75      1000
+

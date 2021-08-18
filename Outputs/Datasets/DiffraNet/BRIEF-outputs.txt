@@ -1,0 +1,98 @@
+Detector selected: <ORB 00000255DB418B30>
+
+Descriptor selected: <xfeatures2d_BriefDescriptorExtractor 00000255DB418BB0>
+
+Training-set path: Datasets/DiffraNet/Dataset/Train/
+
+Test-set path: Datasets/DiffraNet/Dataset/Test/
+
+Number of Classes: 5
+
+Extract Features
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+Extracted BRIEF 
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+Extracted BRIEF 
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+Extracted BRIEF 
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+Extracted BRIEF 
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+Extracted BRIEF 
+
+Time: 00:00:37 
+
+Create Bag of Visual Features
+
+Training BRIEF K-Means
+
+Time: 00:08:38 
+
+BRIEF Training Data
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+
+Time: 00:00:04 
+
+BRIEF Testing Data
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+
+Time: 00:00:09 
+
+Training BRIEF SVM Models
+
+BRIEF SVM
+
+Training Set Evaluation
+
+Train score: 0.69
+
+Testing BRIEF SVM Model
+
+BRIEF SVM
+
+Testing Set Evaluation
+
+Test score: 0.70
+
+Classification Report
+
+BRIEF SVM
+
+Classification report for Classifier: 
+
+SVC(C=0.001): 
+
+               precision    recall  f1-score   support
+
+       Blank       0.58      1.00      0.74       200
+        Good       0.69      0.90      0.78       200
+      Strong       0.90      0.89      0.89       200
+        Weak       0.00      0.00      0.00       199
+
+    accuracy                           0.70       799
+   macro avg       0.54      0.70      0.60       799
+weighted avg       0.54      0.70      0.60       799
+

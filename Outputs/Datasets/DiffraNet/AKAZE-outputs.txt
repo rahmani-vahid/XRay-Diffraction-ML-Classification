@@ -1,0 +1,33 @@
+Detector selected: <AKAZE 0000028D61B58B30>
+
+Descriptor selected: <AKAZE 0000028D61B58BB0>
+
+Training-set path: Datasets/DiffraNet/Dataset/Train/
+
+Test-set path: Datasets/DiffraNet/Dataset/Test/
+
+Number of Classes: 5
+
+Extract Features
+
+Processing the subdirectory named: Blank 	[ 1 / 5 ]
+Extracted AKAZE 
+
+Processing the subdirectory named: Good 	[ 2 / 5 ]
+Extracted AKAZE 
+
+Processing the subdirectory named: No-Crystal 	[ 3 / 5 ]
+Extracted AKAZE 
+
+Processing the subdirectory named: Strong 	[ 4 / 5 ]
+Extracted AKAZE 
+
+Processing the subdirectory named: Weak 	[ 5 / 5 ]
+Extracted AKAZE 
+
+Time: 00:05:27 
+
+Create Bag of Visual Features
+
+Training AKAZE K-Means
+
