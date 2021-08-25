@@ -1,6 +1,5 @@
 
-
-##X-ray diffraction pattern Classification based on Hand-crafted feature extractors and Support Vector Machine (SVM) or Multi-layer Perceptron (MLP) classifiers##
+#X-ray diffraction pattern Classification based on Hand-crafted feature extractors and diffrenet machine learning classifier like Support Vector Machine (SVM), Multi-layer Perceptron (MLP), Random forest (RF) and Naive Bayse (NB).
 
 
 
@@ -10,7 +9,7 @@
 
 -You can run the code with different feature extractor and descriptor algorithms and then classify images (based on extracted features) with SVM or MLP classifier.             
 
-             --MLmodel      {SVM,MLP}
+             --MLmodel      {SVM,MLP,RF,NB}
              --detector     {SIFT, SURF, KAZE, ORB, BRISK, AKAZE, BRIEF}
              --descriptor   {SIFT, SURF, KAZE, BRIEF, ORB, BRISK, AKAZE, FREAK, BREAF}
              --dataset      { DiffraNet, AGIPD}
