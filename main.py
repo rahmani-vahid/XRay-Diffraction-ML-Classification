@@ -19,6 +19,9 @@ import outputs
 import parameters
 import pickle
 import multilayer
+import nb
+import rf
+
 
 
 
@@ -42,7 +45,7 @@ globals.initialize()
 
 message = '''main.py [-h]
 
-             --MLmodel      {SVM,MLP}
+             --MLmodel      {SVM,MLP,RF,NB}
              --detector     {SIFT, SURF, KAZE, ORB, BRISK, AKAZE, BRIEF}
              --descriptor   {SIFT, SURF, KAZE, BRIEF, ORB, BRISK, AKAZE, FREAK, BREAF}
              --dataset      { DiffraNet, AGIPD}'''
@@ -54,7 +57,7 @@ parser = argparse.ArgumentParser(usage = message)
 #-------------------------------------------------------------------
 parser.add_argument('--MLmodel',
                     action = 'store',
-                    choices = ['SVM','MLP'],
+                    choices = ['SVM','MLP','RF','NB'],
                     required = True,
                     metavar = '',
                     dest = 'MLmodel',
@@ -395,10 +398,211 @@ if arguments.MLmodel == 'SVM':
     print('\n\n*************** Finished! **********************')
  
 
-
-
 ############################################################################################
+elif arguments.MLmodel == 'RF':
+    print('\n\n--------------------- Training RF -----------------------------\n')
+    done=False
+    proc='Training RF'
+    t = threading.Thread(target=animate)
+    t.start()   
 
+# Train RF Model
+    print('Training %s RF Models\n' % arguments.descriptor, file = globals.file)
+
+    RF = rf.train(n_estimators=100,
+                descriptor_name = arguments.descriptor,
+                model_name = 'RF')
+
+    print('Done!\n')
+    time.sleep(10)
+    done = True
+
+    print('\n\n--------------------- Testing RF -----------------------------\n')
+
+    done=False
+    proc='Testing RF'
+    t = threading.Thread(target=animate)
+    t.start() 
+# Test RF Model
+    print('Testing %s RF Model\n' % arguments.descriptor, file = globals.file)
+
+    RF_predict = rf.test(model = RF,
+                       descriptor_name = arguments.descriptor,
+                       model_name = 'RF')
+
+    print('Done!\n')
+    time.sleep(10)
+    done = True
+ 
+    print('\n\n--------------------- Creating Reports -----------------------------\n')
+
+    done=False
+    proc='Creating Reports'
+    t = threading.Thread(target=animate)
+    t.start()   
+
+    print('\nClassification Report\n')
+    print('\nClassification Report\n', file = globals.file)
+ 
+ 
+# RF Model 
+    rf.classificationReport(model = RF,
+                         predict = RF_predict,
+                         descriptor_name = arguments.descriptor,
+                         model_name = 'RF')
+
+    #print('Done!\n')
+    print('\nSaving Confusion Matrix\n')
+
+# Save Confusion Matrix figure RF Model
+    save_figures.confusionMatrix(predict = RF_predict,
+                             descriptor_name = arguments.descriptor,
+                             dataset_name = arguments.dataset,
+                             model_name = 'RF')
+
+    #print('Done!\n')
+    print('\nSaving Bag of Visual Features\n')
+#-------------------------------------------------------------------
+
+# Save Bag of Visual Features 
+    save_models.saveBoVF(kmeans = kmeans,
+                     descriptor_name = arguments.descriptor,
+			         dataset_name = arguments.dataset)
+
+    #print('Done!\n')
+    print('\nSaving Descriptors\n')
+#-------------------------------------------------------------------
+
+# Save Training Descriptors
+    save_models.saveDescriptors(feature_vector = globals.train_feature_vec,
+                            descriptor_name = arguments.descriptor,
+			                dataset_name = arguments.dataset,
+                            flag = 'train')
+#-------------------------------------------------------------------
+# Save Test Descriptors
+    save_models.saveDescriptors(feature_vector = globals.test_feature_vec,
+                            descriptor_name = arguments.descriptor,
+			                dataset_name = arguments.dataset,
+                            flag = 'test')
+    #print('Done!\n')
+    print('\nSaving RF Models\n')
+#-------------------------------------------------------------------
+# SVM Model
+    save_models.saveRF(model = RF,
+                    descriptor_name = arguments.descriptor,
+			        dataset_name = arguments.dataset,
+                    model_name = 'RF')
+
+    #print('Done!\n')
+
+    time.sleep(10)
+    done = True
+    
+    outputs.closeFile()
+    print('\n\n*************** Finished! **********************')
+ 
+############################################################################################
+elif arguments.MLmodel == 'NB':
+    print('\n\n--------------------- Training NB -----------------------------\n')
+    done=False
+    proc='Training NB'
+    t = threading.Thread(target=animate)
+    t.start()   
+
+# Train NB Model
+    print('Training %s NB Models\n' % arguments.descriptor, file = globals.file)
+
+    NB = nb.train(descriptor_name = arguments.descriptor,
+                model_name = 'NB')
+
+    print('Done!\n')
+    time.sleep(10)
+    done = True
+
+    print('\n\n--------------------- Testing NB -----------------------------\n')
+
+    done=False
+    proc='Testing NB'
+    t = threading.Thread(target=animate)
+    t.start() 
+# Test RF Model
+    print('Testing %s NB Model\n' % arguments.descriptor, file = globals.file)
+
+    NB_predict = nb.test(model = NB,
+                       descriptor_name = arguments.descriptor,
+                       model_name = 'NB')
+
+    print('Done!\n')
+    time.sleep(10)
+    done = True
+ 
+    print('\n\n--------------------- Creating Reports -----------------------------\n')
+
+    done=False
+    proc='Creating Reports'
+    t = threading.Thread(target=animate)
+    t.start()   
+
+    print('\nClassification Report\n')
+    print('\nClassification Report\n', file = globals.file)
+ 
+ 
+# RF Model 
+    nb.classificationReport(model = NB,
+                         predict = NB_predict,
+                         descriptor_name = arguments.descriptor,
+                         model_name = 'NB')
+
+    #print('Done!\n')
+    print('\nSaving Confusion Matrix\n')
+
+# Save Confusion Matrix figure NB Model
+    save_figures.confusionMatrix(predict = NB_predict,
+                             descriptor_name = arguments.descriptor,
+                             dataset_name = arguments.dataset,
+                             model_name = 'NB')
+
+    #print('Done!\n')
+    print('\nSaving Bag of Visual Features\n')
+#-------------------------------------------------------------------
+
+# Save Bag of Visual Features 
+    save_models.saveBoVF(kmeans = kmeans,
+                     descriptor_name = arguments.descriptor,
+			         dataset_name = arguments.dataset)
+
+    #print('Done!\n')
+    print('\nSaving Descriptors\n')
+#-------------------------------------------------------------------
+
+# Save Training Descriptors
+    save_models.saveDescriptors(feature_vector = globals.train_feature_vec,
+                            descriptor_name = arguments.descriptor,
+			                dataset_name = arguments.dataset,
+                            flag = 'train')
+#-------------------------------------------------------------------
+# Save Test Descriptors
+    save_models.saveDescriptors(feature_vector = globals.test_feature_vec,
+                            descriptor_name = arguments.descriptor,
+			                dataset_name = arguments.dataset,
+                            flag = 'test')
+    #print('Done!\n')
+    print('\nSaving NB Models\n')
+#-------------------------------------------------------------------
+# NB Model
+    save_models.saveNB(model = NB,
+                    descriptor_name = arguments.descriptor,
+			        dataset_name = arguments.dataset,
+                    model_name = 'NB')
+
+    #print('Done!\n')
+
+    time.sleep(10)
+    done = True
+    
+    outputs.closeFile()
+    print('\n\n*************** Finished! **********************')
+ ####################################################################################
 elif arguments.MLmodel == 'MLP':
     print('\n\n--------------------- Training MLP -----------------------------\n')
 

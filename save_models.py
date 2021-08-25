@@ -31,6 +31,26 @@ def saveMLP(model,
     joblib.dump(value = model, 
                 filename = 'Saves/Datasets/%s/MLP-Models/%s-%s.pkl' % (dataset_name, descriptor_name, model_name))    
 
+    #-------------------------------------------------------------------
+def saveRF(model,
+            descriptor_name,
+			dataset_name,
+            model_name):
+
+    joblib.dump(value = model, 
+                filename = 'Saves/Datasets/%s/RF-Models/%s-%s.pkl' % (dataset_name, descriptor_name, model_name))
+ #-------------------------------------------------------------------              
+
+#-------------------------------------------------------------------
+def saveNB(model,
+            descriptor_name,
+			dataset_name,
+            model_name):
+
+    joblib.dump(value = model, 
+                filename = 'Saves/Datasets/%s/NB-Models/%s-%s.pkl' % (dataset_name, descriptor_name, model_name))
+ #-------------------------------------------------------------------              
+
 
 
  
