@@ -29,7 +29,7 @@ def train(n_estimators,
 
     print('Time:', timer, '\n', file = globals.file)
 
-#-------------------------------------------------------------------
+#--------------------------------------------------------------------
 
 def test(model,
          descriptor_name,

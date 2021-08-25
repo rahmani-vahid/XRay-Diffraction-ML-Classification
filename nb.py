@@ -27,7 +27,7 @@ def train(descriptor_name,
 
     print('Time:', timer, '\n', file = globals.file)
 
-#-------------------------------------------------------------------
+#--------------------------------------------------------------------
 
 def test(model,
          descriptor_name,
