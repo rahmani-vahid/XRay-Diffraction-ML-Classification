@@ -12,7 +12,7 @@ def train(n_estimators,
 
     with Timer() as timer:
         # RF Model
-        clf=RandomForestClassifier(n_estimators=100)
+        clf=RandomForestClassifier(n_estimators=n_estimators)
 
         clf.fit(globals.train_feature_vec[0],
                 globals.train_feature_vec[1])

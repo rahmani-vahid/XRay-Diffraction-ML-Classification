@@ -178,7 +178,7 @@ def generateHistograms(descriptors, kmeans_centers):
     for i, desc in descriptors.items(): 
         preds = kmeans_centers.predict(desc)
         hist, bin_edges = np.histogram(a = preds,
-                                       bins = range(0, globals.K))
+                                       bins = np.arange(globals.K + 1))
         histograms.append(hist)
     
     return histograms
