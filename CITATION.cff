@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "Please cite the related Journal of Applied Crystallography publication when using this research code."
+title: "Machine Learning for X-ray Serial Crystallography Data Reduction"
+authors:
+  - family-names: Rahmani
+    given-names: Vahid
+  - family-names: Nawaz
+    given-names: Shah
+  - family-names: Pennicard
+    given-names: David
+  - family-names: Setty
+    given-names: Shabarish Pala Ramakantha
+  - family-names: Graafsma
+    given-names: Heinz
+preferred-citation:
+  type: article
+  title: "Data reduction for X-ray serial crystallography using machine learning"
+  authors:
+    - family-names: Rahmani
+      given-names: Vahid
+    - family-names: Nawaz
+      given-names: Shah
+    - family-names: Pennicard
+      given-names: David
+    - family-names: Setty
+      given-names: Shabarish Pala Ramakantha
+    - family-names: Graafsma
+      given-names: Heinz
+  journal: "Journal of Applied Crystallography"
+  year: 2023
+  volume: 56
+  issue: 1
+  start: 200
+  end: 213
+  doi: "10.1107/S1600576722011748"

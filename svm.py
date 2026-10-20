@@ -13,7 +13,7 @@ def train(gama,
 
     with Timer() as timer:
         # SVM Model
-        SVM = svm.SVC(gama)
+        SVM = svm.SVC(gamma=gama)
         
         SVM.fit(globals.train_feature_vec[0],
                 globals.train_feature_vec[1])

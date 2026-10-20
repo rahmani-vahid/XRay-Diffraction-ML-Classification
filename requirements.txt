@@ -1,0 +1,6 @@
+# Historical source dependencies. Versions have not been validated.
+numpy
+scikit-learn
+opencv-contrib-python
+matplotlib
+joblib

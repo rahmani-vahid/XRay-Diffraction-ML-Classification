@@ -1,0 +1,33 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments and IDE
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# Binary models and extracted features (not source code)
+*.pkl
+*.pickle
+
+# Do not commit raw scientific datasets by default
+Datasets/**/*
+!Datasets/**/
+!Datasets/**/.gitkeep
+
+# Machine-specific / temporary files
+*.log
+*.tmp
+
+# Keep local experiment artifacts private and out of version control by default
+Figures/**/*
+!Figures/**/
+!Figures/**/.gitkeep
+Outputs/**/*
+!Outputs/**/
+!Outputs/**/.gitkeep
